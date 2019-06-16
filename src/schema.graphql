@@ -1,0 +1,30 @@
+type Query {
+       users(query: String): [User!]!
+       departments(query: String): [Department!]!
+       
+
+    }
+
+    type Mutation {
+        createUser(firstName: String!, lastName: String! jobTitle: String!): User!
+
+
+    }
+
+    type User {
+    id: ID! 
+    firstName: String!
+    lastName: String!
+    jobTitle: String!
+    department: [Department!]!
+    
+    }
+
+    type Department {
+      id: ID!
+      name: String!
+   
+      
+    }
+
+    
