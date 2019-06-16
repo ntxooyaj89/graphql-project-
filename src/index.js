@@ -4,9 +4,6 @@ import db from './db'
 
 
 
-
-
-
 // Resolvers
 const resolvers = {
     Query: {
@@ -50,8 +47,8 @@ const resolvers = {
 
     User: {
         department(parent, args, {db}, info) {
-            return db.users.find((User) => {
-                return user.id === parent.department
+            return db.departments.find((department) => {
+                return department.departmentId === parent.id
             })
         }
     },
