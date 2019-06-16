@@ -1,4 +1,6 @@
 import { GraphQLServer } from 'graphql-yoga'
+import uuidv4 from 'uuid/v4'
+
 
 const users = [{
     id: '2798c35b-5b8f-4a5d-9858-0a818d48cbef',
@@ -60,6 +62,12 @@ const typeDefs = `
 
     }
 
+    type Mutation {
+        createUser(firstName: String!, lastName: String! jobTitle: String!): User!
+
+
+    }
+
     type User {
     id: ID! 
     firstName: String!
@@ -93,13 +101,32 @@ const resolvers = {
 
     },
 
-    // Departments: {
-    //     people(parent, args, ctx, info) {
-    //         return departments.find(() => {
-    //             return departments.id === parent.people
-    //         })
-    //     }
-    // }
+    Mutation: {
+        createUser(parent, args, ctx, info) {
+            const lastNameTaken = users.some((user) => {
+                return user.lastName === args.lastName
+            })
+
+            if(lastNameTaken) {
+                throw new Error('This last name taken')
+            }
+
+            const user = {
+                id: uuidv4(),
+                firstName: args.firstName,
+                lastName: args.lastName,
+                jobTitle: args.jobTitle
+            }
+
+            users.push(user)
+
+            return user
+
+        
+
+
+        }
+    },
 
     User: {
         department(parent, args, ctx, info) {
