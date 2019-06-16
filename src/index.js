@@ -1,6 +1,6 @@
 import { GraphQLServer } from 'graphql-yoga'
 
-const people = [{
+const users = [{
     id: '2798c35b-5b8f-4a5d-9858-0a818d48cbef',
     firstName: 'Orval',
     lastName: 'Hauck',
@@ -54,13 +54,13 @@ const departments = [{
 // schema
 const typeDefs = `
     type Query {
-       people(query: String): [Person!]!
+       users(query: String): [User!]!
        departments(query: String): [Department!]!
        
 
     }
 
-    type Person {
+    type User {
     id: ID! 
     firstName: String!
     lastName: String!
@@ -82,8 +82,8 @@ const typeDefs = `
 // Resolvers
 const resolvers = {
     Query: {
-        people(parent, args, ctx, info) {
-            return people
+        users(parent, args, ctx, info) {
+            return users
         },
 
         departments(parent, args, ctx, info) {
@@ -101,10 +101,10 @@ const resolvers = {
     //     }
     // }
 
-    Person: {
+    User: {
         department(parent, args, ctx, info) {
-            return people.find((Person) => {
-                return Person.id === parent.department
+            return users.find((User) => {
+                return user.id === parent.department
             })
         }
     },
