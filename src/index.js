@@ -27,9 +27,9 @@ const typeDefs = `
     id: ID! 
     firstName: String!
     lastName: String!
-    jobTitile: String!
+    jobTitle: String!
     departmentId: Float
-    managerId: 
+    managerId: Float
     }
 
 `
