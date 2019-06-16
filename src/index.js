@@ -22,6 +22,7 @@ const departments = [{
       id: '920a774e-617a-4a5b-82ea-8205c18eef75',
       name: 'Engineering' 
       
+      
     },{ 
         id: 'cfd90465-28fa-4b9a-be3e-ef2517e987e9',
         name: 'Sales'
@@ -53,28 +54,26 @@ const departments = [{
 // schema
 const typeDefs = `
     type Query {
-       people(query: String): [People!]!
-       departments(query: String): [Departments!]!
+       people(query: String): [Person!]!
+       departments(query: String): [Department!]!
        
 
     }
 
-    type People {
+    type Person {
     id: ID! 
     firstName: String!
     lastName: String!
     jobTitle: String!
-    department: Departments!
+    department: [Department!]!
     
     }
 
-    type Departments {
+    type Department {
       id: ID!
       name: String!
+   
       
-      
-      
-        
     }
 
     
@@ -102,10 +101,10 @@ const resolvers = {
     //     }
     // }
 
-    People: {
-        department(parent, args, ctx, info){
-            return people.find(() =>{
-                return people.id === parent.department
+    Person: {
+        department(parent, args, ctx, info) {
+            return people.find((Person) => {
+                return Person.id === parent.department
             })
         }
     },
