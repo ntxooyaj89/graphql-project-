@@ -6,9 +6,20 @@ type Query {
     }
 
     type Mutation {
-        createUser(firstName: String!, lastName: String! jobTitle: String!): User!
+      updateUser(id: ID!, data: UpdateUserInput!): User!
+      createUser(firstName: String!, lastName: String! jobTitle: String!): User!
 
 
+    }
+
+    input UpdateUserInput {
+      firstName: String!
+      lastName: String!
+      jobTitle: String!
+      departmentId: String!
+      managerId: String!
+
+      
     }
 
     type User {
@@ -16,6 +27,8 @@ type Query {
     firstName: String!
     lastName: String!
     jobTitle: String!
+    departmentId: String 
+    managerId: String
     department: [Department!]!
     
     }
