@@ -12,7 +12,7 @@ Technologies used:
 4. Nodemon
 5. uuid
 
-## 
+## Getting Started
 
 
 Clone down the repository and run npm install on your computer. 
