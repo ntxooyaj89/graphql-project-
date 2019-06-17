@@ -1,16 +1,16 @@
 # graphql-project
 
-A graphql server that allow user to retrieve data, update data, and create new data to the database. Currently only available to be explored by Playground- localhost:4000. 
+A graphql server that allow user to retrieve data, update data, and create new data. Currently only available to be explored by Playground- localhost:4000. 
 
 ## Built With
 
 Technologies used:
 
-Node.js
-Babel
-Graphql-yoga
-Nodemon
-uuid
+1. Node.js
+2. Babel
+3. Graphql-yoga
+4. Nodemon
+5. uuid
 
 ## 
 
