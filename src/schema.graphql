@@ -6,8 +6,8 @@ type Query {
     }
 
     type Mutation {
-      updateUser(id: ID!, data: UpdateUserInput!): User!
       createUser(firstName: String!, lastName: String! jobTitle: String!): User!
+      updateUser(id: ID!, data: UpdateUserInput!): User!
 
 
     }
@@ -18,7 +18,6 @@ type Query {
       jobTitle: String!
       departmentId: String!
       managerId: String!
-
       
     }
 

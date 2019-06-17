@@ -29,38 +29,42 @@ const Mutation = {
 
     updateUser(parent, args, { db }, info) {
         const { id, data } = args
-        const user = db.users.find(() => user.id === id)
+        const user = db.users.find((user) => user.id === id)
 
         if (!user) {
             throw new Error('User not found')
         }
 
         if (typeof data.firstName === 'string') {
-            user.firstName === data.firstName
+            user.firstName = data.firstName
         }
 
         if (typeof data.lastName === 'string') {
-            user.lastName === data.lastName
+            user.lastName = data.lastName
 
         }
 
         if (typeof data.jobTitle === 'string') {
-            user.jobTitle === data.jobTitle
+            user.jobTitle = data.jobTitle
         }
 
         if (typeof data.departmentId === 'string') {
-            user.departmentId === data.departmentId
+            user.departmentId = data.departmentId
         }
 
         if (typeof data.managerId === 'string') {
-            user.managerId === data.managerId
+            user.managerId = data.managerId
         }
 
         return user
 
+       
+
 
 
     }
+
+     
 }
 
 export { Mutation as default }
