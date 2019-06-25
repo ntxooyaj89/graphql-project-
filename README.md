@@ -21,11 +21,9 @@ Clone down the repository and run npm install on your computer.
 
 
 
-1. Given a user, it should be possible to explore relationships and their hierarchy to     pull in other users as well as their department.
+1. Given a user, it should be possible to explore relationships and their      hierarchy to pull in other users as well as their department.
 
-2. There should be some automated testing of the provided code. Which can be run via a
-   single command such as “npm test” or something equivalent. Document how to run the
-   tests in the README.
+2. There should be some automated testing of the provided code. Which can be run via a single command such as “npm test” or something equivalent. Document how to run the tests in the README.
 
 
 ## Author
